@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
-const db = require('../models');
+const db = require('../models/workout');
+
+console.log(db);
 
 mongoose.connect('mongodb://localhost/workout', {
   useNewUrlParser: true,
@@ -125,8 +127,9 @@ const workoutSeed = [
   },
 ];
 
-db.Workout.deleteMany({})
-  .then(() => db.Workout.collection.insertMany(workoutSeed))
+// Here I had to delete Workout after db because it was unnecessary
+db.deleteMany({})
+  .then(() => db.collection.insertMany(workoutSeed))
   .then((data) => {
     console.log(data.result.n + ' records inserted!');
     process.exit(0);

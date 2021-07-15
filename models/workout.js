@@ -28,7 +28,7 @@ const WorkoutSchema = new Schema({
 });
 
 // Add a constant to store the model name, and the schema of the model stored on WorkoutSchema
-const Workout = mongoose.model("Workout", WorkoutSchema);
+let Workout = mongoose.model("Workout", WorkoutSchema);
 
 // Export the model file
 module.exports = Workout;
